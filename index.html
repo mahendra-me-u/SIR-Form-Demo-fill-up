@@ -1,0 +1,261 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ভারতের নির্বাচন কমিশন</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <script src="qrcode.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23ff8c00;%7D.cls-2%7Bfill:%23fff;%7D.cls-3%7Bfill:%23006400;%7D.cls-4%7Bfill:%23708090;%7D%3C/style%3E%3C/defs%3E%3Cg transform='rotate(-45 100 100)'%3E%3Crect class='cls-1' x='40' y='40' width='40' height='120' stroke='%23000' stroke-width='4'/%3E%3Crect class='cls-2' x='85' y='40' width='40' height='120' stroke='%23000' stroke-width='4'/%3E%3Crect class='cls-3' x='130' y='40' width='40' height='120' stroke='%23000' stroke-width='4'/%3E%3Ccircle class='cls-4' cx='60' cy='25' r='12'/%3E%3Ccircle class='cls-4' cx='105' cy='25' r='12'/%3E%3Ccircle class='cls-4' cx='150' cy='25' r='12'/%3E%3C/g%3E%3Ctext x='100' y='185' font-family='Arial' font-size='10' text-anchor='middle' font-weight='bold'%3EECI%3C/text%3E%3C/svg%3E"
+                    alt="Election Commission of India">
+            </div>
+            <h1>ভারতের নির্বাচন কমিশন</h1>
+            <h2>গণনার ফর্ম</h2>
+            <p class="blo-info">Name and contact No of BLO: Sanatan Saren, 9002523826</p>
+        </div>
+
+        <div class="info-section">
+            <div class="info-left">
+                <div class="info-box">
+                    <div class="info-field">
+                        <label for="voterName">নির্বাচকের নাম:</label>
+                        <input type="text" id="voterName" name="voterName" placeholder="নাম লিখুন">
+                    </div>
+                    <div class="info-field">
+                        <label for="epicNumber">এপিকঃ</label>
+                        <input type="text" id="epicNumber" name="epicNumber" placeholder="EPIC নম্বর">
+                    </div>
+                    <div class="info-field">
+                        <label for="address">ঠিকানা:</label>
+                        <input type="text" id="address" name="address" placeholder="ঠিকানা লিখুন">
+                    </div>
+                </div>
+                <div class="info-box">
+                    <div class="info-field">
+                        <label for="serialNumber">ক্রমিক সংখ্যা:</label>
+                        <input type="text" id="serialNumber" name="serialNumber" placeholder="ক্রমিক সংখ্যা">
+                    </div>
+                    <div class="info-field">
+                        <label for="partNumber">অংশ নম্বর ও নাম:</label>
+                        <input type="text" id="partNumber" name="partNumber" placeholder="অংশ নম্বর ও নাম">
+                    </div>
+                    <div class="info-field">
+                        <label for="constituencyName">বিধানসভা/লোকসভা -র নাম:</label>
+                        <input type="text" id="constituencyName" name="constituencyName" placeholder="নাম">
+                    </div>
+                    <div class="info-field">
+                        <label for="stateName">রাজ্যের নাম:</label>
+                        <input type="text" id="stateName" name="stateName" placeholder="রাজ্যের নাম">
+                    </div>
+                </div>
+            </div>
+            <div class="info-right">
+                <div class="qr-box info-box">
+                    <div class="qr-container">
+                        <div id="qr-placeholder" class="qr-placeholder">QR Code</div>
+                        <canvas id="qr-canvas" style="display:none;"></canvas>
+                    </div>
+                </div>
+                <div class="photo-box info-box">
+                    <div class="photo-container">
+                        <input type="file" id="photo-upload" accept="image/*" style="display:none;">
+                        <label for="photo-upload" class="photo-label">Upload Photo</label>
+                        <img id="photo-preview" class="photo-preview"
+                            style="display:none; width:100%; height:120px; object-fit:cover; border-radius:4px;">
+                        <div id="photo-placeholder" class="photo-placeholder">সাম্প্রতিক ফটো সাঁটুন</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form id="voterForm">
+            <!-- Personal Details -->
+            <section class="form-section">
+                <h3>ব্যক্তিগত বিবরণ</h3>
+                <div class="form-group">
+                    <label for="dob">জন্ম তারিখ (তারিখ/মাস/বছর)</label>
+                    <input type="date" id="dob" name="dob" placeholder="DD/MM/YYYY">
+                </div>
+
+                <div class="form-group">
+                    <label for="aadhaar">আধার নম্বর(ঐচ্ছিক)</label>
+                    <input type="text" id="aadhaar" name="aadhaar" placeholder="XXXX-XXXX-XXXX" maxlength="14">
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">মোবাইল নম্বর</label>
+                    <input type="tel" id="mobile" name="mobile" placeholder="+91">
+                </div>
+
+                <div class="form-group">
+                    <label for="fatherName">পিতার / অভিভাবকের নাম</label>
+                    <input type="text" id="fatherName" name="fatherName">
+                </div>
+
+                <div class="form-group">
+                    <label for="fatherEpic">পিতার / অভিভাবকের এপিক নং (যদি থাকে)</label>
+                    <input type="text" id="fatherEpic" name="fatherEpic">
+                </div>
+
+                <div class="form-group">
+                    <label for="motherName">মায়ের নাম</label>
+                    <input type="text" id="motherName" name="motherName">
+                </div>
+
+                <div class="form-group">
+                    <label for="motherEpic">মায়ের এপিক নং (যদি থাকে)</label>
+                    <input type="text" id="motherEpic" name="motherEpic">
+                </div>
+
+                <div class="form-group">
+                    <label for="spouseName">স্বামী/স্ত্রীর নাম (যদি থাকে)</label>
+                    <input type="text" id="spouseName" name="spouseName">
+                </div>
+
+                <div class="form-group">
+                    <label for="spouseEpic">স্বামী/স্ত্রীর এপিক নং (যদি থাকে)</label>
+                    <input type="text" id="spouseEpic" name="spouseEpic">
+                </div>
+            </section>
+
+            <!-- Previous Voter Details -->
+            <section class="form-section">
+                <h3>সর্বশেষ এস আই আর-এ নির্বাচক তালিকায় থাকা নির্বাচকের বিবরণ</h3>
+                <div class="grid-2">
+                    <div class="column">
+                        <div class="form-group">
+                            <label for="prevName">নির্বাচকের নাম:</label>
+                            <input type="text" id="prevName" name="prevName">
+                        </div>
+                        <div class="form-group">
+                            <label for="prevEpic">এপিক নং (যদি থাকে):</label>
+                            <input type="text" id="prevEpic" name="prevEpic">
+                        </div>
+                        <div class="form-group">
+                            <label for="prevRelation">সম্পর্ক:</label>
+                            <input type="text" id="prevRelation" name="prevRelation">
+                        </div>
+                        <div class="form-group">
+                            <label for="prevDistrict">জেলা:</label>
+                            <input type="text" id="prevDistrict" name="prevDistrict">
+                        </div>
+                        <div class="form-group">
+                            <label for="prevState">রাজ্যের নাম:</label>
+                            <input type="text" id="prevState" name="prevState">
+                        </div>
+                        <div class="form-group">
+                            <label for="prevConstituency">বিধানসভা ক্ষেত্রের নাম:</label>
+                            <input type="text" id="prevConstituency" name="prevConstituency">
+                        </div>
+                        <div class="form-group">
+                            <label for="prevConstNum">বিধানসভা ক্ষেত্রের নম্বর:</label>
+                            <div class="grid-3">
+                                <input type="text" placeholder="নম্বর" id="prevNum">
+                                <input type="text" placeholder="অংশ নম্বর" id="prevPart">
+                                <input type="text" placeholder="ক্রমিক সংখ্যা" id="prevSerial">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="form-group">
+                            <label for="prevAddress">আত্মীয়ের নাম :</label>
+                            <input type="text" id="prevAddress" name="prevAddress">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Relative Details -->
+            <section class="form-section page-break-avoid">
+                <h3>আত্মীয়ের বিবরণ</h3>
+                <div class="grid-2">
+                    <div class="column">
+                        <div class="form-group">
+                            <label for="relName">নাম:</label>
+                            <input type="text" id="relName" name="relName">
+                        </div>
+                        <div class="form-group">
+                            <label for="relEpic">এপিক নং (যদি থাকে):</label>
+                            <input type="text" id="relEpic" name="relEpic">
+                        </div>
+                        <div class="form-group">
+                            <label for="relRelation">সম্পর্ক:</label>
+                            <input type="text" id="relRelation" name="relRelation">
+                        </div>
+                        <div class="form-group">
+                            <label for="relDistrict">জেলা:</label>
+                            <input type="text" id="relDistrict" name="relDistrict">
+                        </div>
+                        <div class="form-group">
+                            <label for="relState">রাজ্যের নাম:</label>
+                            <input type="text" id="relState" name="relState">
+                        </div>
+                        <div class="form-group">
+                            <label for="relConstituency">বিধানসভা ক্ষেত্রের নাম:</label>
+                            <input type="text" id="relConstituency" name="relConstituency">
+                        </div>
+                        <div class="form-group">
+                            <label for="relConstNum">বিধানসভা ক্ষেত্রের নম্বর:</label>
+                            <div class="grid-3">
+                                <input type="text" placeholder="নম্বর" id="relNum">
+                                <input type="text" placeholder="অংশ নম্বর" id="relPart">
+                                <input type="text" placeholder="ক্রমিক সংখ্যা" id="relSerial">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Declaration - This will be forced to new page in print -->
+            <section class="declaration-section page-break-before">
+                <div class="declaration">
+                    <p><strong>ঘোষণা:</strong></p>
+                    <p>(i) উপরে উল্লিখিত নির্বাচক, আমি/আমার পরিবারের সদস্য, অন্য কোনও দেশের নাগরিকত্ব অর্জন করিনি।</p>
+                    <p>(ii) আমি নিৰ্বাচক তালিকায় অন্তৰ্ভুক্তির জন্য আবেদন করছি, এবং উপরে উল্লিখিত নামটি, আমি/আমার
+                        পরিবারের সদস্য, অন্য কোনও বিধানসভা নিৰ্বাচনী এলাকা/সংসদীয় নিৰ্বাচনী এলাকার অন্তৰ্ভুক্ত নয়।</p>
+                    <p>(iii) আমি এই বিষয়ে সচেতন যে এই আবেদন সংক্রান্ত কোনো বিবৃতি বা ঘোষণা যা মিথ্যা বা যা আমি মিথ্যা
+                        বলে
+                        জানি বা বিশ্বাস করি
+                        অথবা সত্য বলে বিশ্বাস করি না, তা ১৯৫০ সালের জন-প্রতিনিধিত্ব আইনের ৩১ নং ধারা ( ১৯৫০ এর ৪৩)
+                        অনুযায়ী এক বছর পর্যন্ত কারাবাস বা জরিমানা বা উভয় ভাবে শাস্তিযোগ্য অপরাধ হিসাবে গন্য হতে পারে।
+                    </p>
+                </div>
+
+                <div class="signature-section">
+                    <p>নির্বাচক বা পরিবারের যে কোনো সাবালক সদস্যের স্বাক্ষর/ বাম হাতের বৃদ্ধাঙ্গুলীর ছাপ( আত্মীয়তার ধরণ
+                        উল্লেখ করুন)
+                        তারিখ সহ</p>
+                    <div class="signature-line"></div>
+                </div>
+
+                <p class="blo-note">বি এল ও-এর অঙ্গীকার পত্র: সর্বশেষ এস.আই.আর -এর নির্বাচক
+                    তালিকা থেকে আমি উপরোক্ত বিবরণগুলি যাচাই করে লেশে নিবেষদি।</p>
+
+                <div class="blo-signature">
+                    <p>বি এল ও-এর স্বাক্ষর</p>
+                    <div class="signature-line"></div>
+                </div>
+            </section>
+
+            <div class="button-group">
+                <button type="submit" class="btn btn-submit">Submit</button>
+                <button type="reset" class="btn btn-reset">Reset</button>
+                <button type="button" class="btn btn-print" onclick="printForm()">Print</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

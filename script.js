@@ -109,16 +109,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Mobile number format
-    document.getElementById('mobile').addEventListener('input', function (e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 10) value = value.substring(0, 10);
-        if (value.length >= 6) {
-            value = '+91 ' + value.substring(0, 5) + ' ' + value.substring(5);
-        } else {
-            value = '+91 ' + value;
-        }
-        e.target.value = value;
-    });
+  document.getElementById('mobile').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, '');  // removes everything except digits
+    if (value.length > 10) value = value.substring(0, 10);
+    if (value.length >= 6) {
+        value = '+91 ' + value.substring(0, 5) + ' ' + value.substring(5);
+    } else {
+        value = '+91 ' + value;
+    }
+    e.target.value = value;
+});
 
     // DOB input as date (browser handles it)
     document.getElementById('dob').addEventListener('input', function (e) {
